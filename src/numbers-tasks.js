@@ -263,8 +263,11 @@ function getCube(num) {
  *   3  => 2
  *   10 => 55
  */
-function getFibonacciNumber(/* index */) {
-  throw new Error('Not implemented');
+function getFibonacciNumber(index) {
+  if (index <= 1) {
+    return index;
+  }
+  return getFibonacciNumber(index - 1) + getFibonacciNumber(index - 2);
 }
 
 /**
@@ -311,8 +314,12 @@ function getSumOfDigits(num) {
  *   16  => true
  *   15  => false
  */
-function isPowerOfTwo(/* num */) {
-  throw new Error('Not implemented');
+function isPowerOfTwo(num) {
+  for (let i = 0; i < 64; i += 1)
+    if (2 ** i === num) {
+      return true;
+    }
+  return false;
 }
 
 /**
@@ -354,8 +361,8 @@ function numberToStringInBase(number, base) {
  * @example:
  * 12345, 2    => '1.23e+4'
  */
-function toExponential(/* number, fractionDigits */) {
-  throw new Error('Not implemented');
+function toExponential(number, fractionDigits) {
+  return Number.parseFloat(number).toExponential(fractionDigits);
 }
 
 /**
@@ -418,11 +425,8 @@ function getNumberValue(/* number */) {
  * 5        => true
  * '5'      => false
  */
-function isNumber(number) {
-  if (Number.isNaN(number)) {
-    return false;
-  }
-  return number;
+function isNumber(/* number */) {
+  throw new Error('Not implemented');
 }
 
 /**
@@ -477,6 +481,12 @@ function getFloatOnString(str) {
  */
 function getIntegerOnString(/* str, base */) {
   throw new Error('Not implemented');
+
+  // const parsed = Number.parseInt(str, base);
+  // if (Number.isNaN(parsed)) {
+  //   return 0;
+  // }
+  // return parsed * 100;
 }
 
 /**
@@ -611,8 +621,8 @@ function getRandomInteger(min, max) {
  * @example:
  * 3, 4 => 5
  */
-function getHypotenuse(/* a, b */) {
-  throw new Error('Not implemented');
+function getHypotenuse(a, b) {
+  return Math.hypot(a, b);
 }
 
 /**
